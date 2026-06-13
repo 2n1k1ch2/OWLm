@@ -29,9 +29,7 @@ func (g *Graph) RemoveNode(n *Node) {
 	if g.Nodes == nil {
 		panic("Graph is not initialized")
 	}
-	if _, ok := g.Nodes[n.Name]; ok {
-		delete(g.Nodes, n.Name)
-	}
+	delete(g.Nodes, n.Name)
 }
 
 func BuildGraph(list []makefile.RawManifest) (*Graph, error) {
