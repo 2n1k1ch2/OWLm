@@ -25,6 +25,10 @@ func (g *Graph) AddNode(n *Node) {
 
 	g.Nodes[n.Name] = n
 }
+func (g *Graph) GetNode(name string) (*Node, bool) {
+	node, ok := g.Nodes[name]
+	return node, ok
+}
 func (g *Graph) RemoveNode(n *Node) {
 	if g.Nodes == nil {
 		panic("Graph is not initialized")
