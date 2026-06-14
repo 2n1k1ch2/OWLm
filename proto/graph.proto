@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message Dependency {
+  string target = 1;
+  DependencyKind kind = 2;
+  string condition = 3;
+}
+
+enum DependencyKind {
+  PACKAGE = 0;
+  CONFIG = 1;
+}
+
+message Package {
+  string name = 1;
+  string path = 2;
+
+  repeated Dependency depends = 3;
+  repeated Dependency build_depends = 4;
+  repeated Dependency host_build_depends = 5;
+}
+
+message Graph {
+  repeated Package packages = 1;
+}
